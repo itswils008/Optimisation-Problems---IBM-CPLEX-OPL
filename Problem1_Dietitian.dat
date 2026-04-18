@@ -1,0 +1,18 @@
+/*********************************************
+ * OPL 22.1.2.0 Data
+ * Author: wilso
+ * Creation Date: Mar 22, 2026 at 11:11:35 AM
+ *********************************************/
+
+// The data is read directly from an Excel sheet as required by the question.
+// Named ranges are used instead of hard-coded cell addresses so the
+// .dat file remains valid, even if rows or columns are added to the spreadsheet.
+
+SheetConnection data("dietitian_data.xlsx");
+
+F from SheetRead(data, "Sheet1!foods");     //food item names       (row 2, cols C:I)
+N from SheetRead(data, "Sheet1!nutrients"); //nutrient names        (col B, rows 3:8)
+a from SheetRead(data, "Sheet1!content");   //content matrix        (rows 3:8, cols C:I)
+c from SheetRead(data, "Sheet1!cost");      //cost per lb           (row 9, cols C:I)
+L from SheetRead(data, "Sheet1!lower");     //lower bound/nutrient  (col J, rows 3:8)
+U from SheetRead(data, "Sheet1!upper");     //upper bound/nutrient  (col K, rows 3:8)
