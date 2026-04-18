@@ -1,0 +1,60 @@
+/*********************************************
+ * OPL 22.1.2.0 Data
+ * Author: wilso
+ * Creation Date: Mar 22, 2026 at 11:57:05 AM
+ *********************************************/
+
+ S = {"Allen", "Black", "Chung", "Clark", "Conners", "Cumming",
+     "Demming", "Eng", "Farmer", "Forest", "Goodman", "Harris",
+     "Holmes", "Johnson", "Knorr", "Manheim", "Morris", "Nathan",
+     "Neuman", "Patrick", "Rollins", "Schuman", "Silver", "Stein",
+     "Stock", "Truman", "Wolman", "Young"};
+
+P = {"A", "ED", "EZ", "G", "H1", "H2", "RB", "SC"};
+
+//preference rank matrix [student][project] - 1 = most preferred
+pref = [
+  [1, 3, 4, 7, 7, 5, 2, 6],  // Allen
+  [7, 4, 2, 5, 5, 8, 1, 3],  // Black
+  [7, 3, 4, 1, 1, 7, 6, 4],  // Chung
+  [8, 7, 1, 2, 2, 4, 6, 4],  // Clark
+  [8, 7, 1, 3, 3, 5, 6, 2],  // Conners
+  [7, 8, 5, 2, 2, 4, 6, 1],  // Cumming
+  [2, 5, 4, 6, 6, 1, 3, 8],  // Demming
+  [5, 8, 3, 1, 1, 7, 4, 6],  // Eng
+  [8, 7, 6, 2, 2, 1, 4, 5],  // Farmer
+  [7, 8, 2, 5, 5, 1, 3, 4],  // Forest
+  [8, 7, 2, 4, 4, 6, 1, 3],  // Goodman
+  [5, 8, 6, 3, 3, 1, 2, 7],  // Harris
+  [7, 8, 5, 2, 2, 4, 6, 1],  // Holmes
+  [2, 2, 5, 7, 7, 6, 4, 1],  // Johnson
+  [8, 5, 1, 2, 2, 6, 7, 4],  // Knorr
+  [5, 8, 3, 1, 1, 4, 7, 6],  // Manheim
+  [8, 5, 4, 6, 6, 3, 1, 2],  // Morris
+  [4, 8, 5, 6, 6, 3, 1, 2],  // Nathan
+  [8, 5, 4, 6, 6, 3, 1, 2],  // Neuman
+  [1, 8, 6, 4, 4, 2, 3, 7],  // Patrick
+  [7, 3, 4, 1, 1, 8, 6, 5],  // Rollins
+  [4, 8, 3, 5, 5, 1, 2, 7],  // Schuman
+  [5, 8, 4, 1, 1, 3, 6, 7],  // Silver
+  [7, 4, 2, 5, 5, 8, 1, 3],  // Stein
+  [5, 2, 1, 6, 6, 8, 4, 3],  // Stock
+  [6, 3, 2, 7, 7, 5, 1, 4],  // Truman
+  [7, 8, 5, 2, 2, 4, 6, 1],  // Wolman
+  [1, 3, 4, 7, 7, 6, 2, 5]   // Young
+];
+
+minGroup = 3;
+maxGroup = 4;
+
+//Connection and Write statements for the Excel file
+SheetConnection sheet("assignment_results.xlsx");
+
+//column headers - project names across row 1 (cols B to I)
+P to SheetWrite(sheet, "Sheet1!B1:I1");
+
+//row labels - student names down column A (rows 2 to 29)
+S to SheetWrite(sheet, "Sheet1!A2:A29");
+
+//assignment matrix (students x projects)
+x to SheetWrite(sheet, "Sheet1!B2:I29"); 
